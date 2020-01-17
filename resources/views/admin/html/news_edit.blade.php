@@ -38,7 +38,7 @@
   </tr>
     <tr>
     <td>新闻图片：</td>
-    <td><input   type="file"  name="img"  class="txt"/></td>
+    <td><img src="{{env('UPLOAD_URL')}}{{$data->img}}" height="170" width="150"/><input   type="file"  name="img"  class="txt"/></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
