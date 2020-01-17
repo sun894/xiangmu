@@ -1,7 +1,7 @@
 <div id="header">
 <img src="/static/images/logo1.png" alt="logo"/>
 <ul>
-	<li><font size="3" color="blue"  align="center">欢迎登录</font></a></li>
+	<li align="center"><font size="2" color="blue">欢迎【{{session('res')['username']}}】登录</font></li>
 	<li><a href="{{url('login/login')}}" target="_blank"><font size="2" color="red">退出</font></a></li>
 </ul>
 </div>

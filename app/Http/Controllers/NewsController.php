@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\NewsModel;
+use Illuminate\Support\Facades\Redis;
 
 class NewsController extends Controller
 {
@@ -13,7 +15,21 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('index.html.index');
+        $data = NewsModel::orderBy('time','desc')->get();
+		$res = NewsModel::orderBy('num','desc')->get();
+        return view('index.html.index',['data'=>$data,'res'=>$res]);
+    }
+    public function commit($id)
+    {
+		$num = Redis::setnx('commit_'.$id,1);
+        if(!$num){
+		   Redis::incr('commit_'.$id);
+		}
+        $num = Redis::get('commit_'.$id);
+        $res = NewsModel::where('news_id',$id)
+		                  ->first();
+		//dd($res);
+        return view('index.html.news_content',['res'=>$res,'num'=>$num]);
     }
 
     /**

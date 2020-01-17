@@ -9,8 +9,8 @@
 <body>
 <div id="header">
 <img src="/static/admin/images/logo1.png" />
-<h3></h3>
-<a href="" target="_blank">退出</a>
+<h3>欢迎【{{session('res')['admin_name']}}】登录</h3>
+<a href="{{url('admin_login/login')}}" target="_blank">退出</a>
 </div>
 </body>
 </html>

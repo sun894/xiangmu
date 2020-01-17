@@ -19,13 +19,15 @@
     <th scope="col">时间</th>
     <th scope="col">操作</th>
   </tr>
+  @foreach($data as $v)
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><a href="">删除</a>/<a href="">修改</a></td>
+    <td>{{$v->c_id}}</td>
+    <td>{{$v->c_name}}</td>
+    <td>{{$v->c_man}}</td>
+    <td>{{date('Y-m-d h:i:s',$v->c_time)}}</td>
+    <td><a href="{{url('/admin_news/cate_del/'.$v->c_id)}}">删除</a>/<a href="{{url('/admin_news/cate_edit/'.$v->c_id)}}">修改</a></td>
   </tr>
+  @endforeach
 </table>
 </div>
 </body>

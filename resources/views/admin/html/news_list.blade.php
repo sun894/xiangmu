@@ -23,16 +23,21 @@
     <th scope="col">时间</th>
     <th scope="col">操作</th>
   </tr>
+  @foreach($data as $v)  
   <tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td><a href="">删除</a>||<a href="">修改</a></td>
+		<td>{{$v->news_id}}</td>
+		<td>{{$v->title}}</td>
+		<td>{{$v->c_name}}</td>
+		<td>{{$v->content}}</td>
+		<td>{{$v->people}}</td>
+		<td><img src="{{env('UPLOAD_URL')}}{{$v->img}}" height="170" width="150"/></td>
+		<td>{{date('Y-m-d h:i:s',$v->time)}}</td>
+		<td>
+		<a href="{{url('/admin_news/news_del/'.$v->news_id)}}">删除</a>
+		<a href="{{url('/admin_news/news_edit/'.$v->news_id)}}">修改</a>
+		</td>
   </tr>
+  @endforeach
 </table>
 </div>
 </body>

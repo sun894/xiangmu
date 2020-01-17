@@ -18,14 +18,16 @@
     <th scope="col">电话</th>
     <th scope="col">操作</th>
   </tr>
+  @foreach($data as $v)
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>{{$v->admin_id}}</td>
+    <td>{{$v->admin_name}}</td>
+    <td>{{$v->admin_tel}}</td>
     <td>
-	<a href="">删除</a>
-	<a href="">修改</a></td>
+<a href="{{url('/admin_news/admin_edit/'.$v->admin_id)}}">修改</a>&nbsp;<a href="{{url('/admin_news/admin_del/'.$v->admin_id)}}">删除</a>
+  </td>
   </tr>  
+  @endforeach
 </table>
 </div>
 </body>

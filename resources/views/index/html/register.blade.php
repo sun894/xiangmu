@@ -18,8 +18,7 @@ a{color:#087eac;}
 <div id="header">
 <img src="/static/images/logo1.png" alt="logo"/>
 <ul>
-    <li><a href="register.php" style="color:#087eac;">会员注册</a>/</li>
-    <li><a href="login.php" style="color:#087eac;">登陆</a></li>
+<a href="{{url('login/login')}}"><font size="2" color="blue">登录</font></a>
 </ul>
 </div>
 
@@ -37,12 +36,12 @@ a{color:#087eac;}
 <h2 align="center">欢迎注册新用户</h2>
 <div class="article">
 
-<form name="login"  action="zhuce.php" method="post">
-
+<form name="login"  action="{{url('login/register_do')}}" method="post">
+@csrf
 <table border="0"    cellspacing="20" cellpadding="0" align="center">
   <tr>
     <td>用户名：</td>
-    <td><input   type="text" name="name" class="txt" width="2"/></td>
+    <td><input   type="text" name="username" class="txt" width="2"/></td>
   </tr>
   <tr>
     <td>密码：</td>
